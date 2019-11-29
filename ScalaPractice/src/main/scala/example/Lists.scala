@@ -40,5 +40,19 @@ object Lists {
    * @return The largest element in `xs`
    * @throws java.util.NoSuchElementException if `xs` is an empty list
    */
-  def max(xs: List[Int]): Int = ???
+  def max(xs: List[Int]): Int = {
+    if (xs.isEmpty) 0
+    else largerNum(xs.head, max(xs.tail))
+  }
+
+/**
+  * This method returns which of two numbers is the larger number
+  * @param num1 An integer
+  * @param num2 An integer
+  * @return The larger of the two numbers
+  */
+  def largerNum(num1: Int, num2: Int): Int = {
+    if (num1 > num2) num1
+    else num2
+  }
 }

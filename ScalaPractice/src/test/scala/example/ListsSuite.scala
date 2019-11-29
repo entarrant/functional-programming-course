@@ -121,11 +121,33 @@ import org.junit.Assert.assertEquals
     assertEquals(expected, sum(list))
   }
 
-//  @Test def `max of a few numbers (10pts)`: Unit = {
-//    assert(max(List(3, 7, 2)) == 7)
-//  }
+  @Test def `max of a few numbers (10pts)`: Unit = {
+    val list = List(3, 7, 2)
+    val expected = 7
 
+    assertEquals(expected, max(list))
+  }
 
+  @Test def `max of empty list`: Unit = {
+    val list = List()
+    val expected = 0
+
+    assertEquals(expected, max(list))
+  }
+
+  @Test def `max of list with all 0s`: Unit = {
+    val list = List(0, 0 , 0, 0)
+    val expected = 0
+
+    assertEquals(expected, max(list))
+  }
+
+  @Test def `max of list with repeats`: Unit = {
+    val list = List(2, 2, 0, 7, 5, 5, 1)
+    val expected = 7
+
+    assertEquals(expected, max(list))
+  }
 
   @Rule def individualTestTimeout = new org.junit.rules.Timeout(1000)
 }
