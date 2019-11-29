@@ -25,7 +25,7 @@ import org.junit.Assert.assertEquals
   }
 
   @Test def `one plus one is three (0pts)?`: Unit = {
-    assert(1 + 1 == 3) // This assertion fails! Go ahead and fix it.
+    assert(1 + 1 == 2)
   }
 
   /**
@@ -50,7 +50,7 @@ import org.junit.Assert.assertEquals
    * when writing tests.
    */
   @Test def `details why one plus one is not three (0pts)`: Unit = {
-    Assert.assertEquals(3, 1 + 1) // Fix me, please!
+    Assert.assertEquals(2, 1 + 1)
   }
 
   /**
@@ -94,12 +94,36 @@ import org.junit.Assert.assertEquals
    * every tested aspect of a method.
    */
   @Test def `sum of a few numbers (10pts)`: Unit = {
-    assert(sum(List(1,2,0)) == 3)
+    val list = List(1,2,0)
+    val expected = 3
+
+    assertEquals(expected, sum(list))
   }
 
-  @Test def `max of a few numbers (10pts)`: Unit = {
-    assert(max(List(3, 7, 2)) == 7)
+  @Test def `sum of empty list`: Unit = {
+    val list = List()
+    val expected = 0
+
+    assertEquals(expected, sum(list))
   }
+
+  @Test def `sum with negative numbers`: Unit = {
+    val list = List(3, 0, -2, 7, -8, -4)
+    val expected = -4
+
+    assertEquals(expected, sum(list))
+  }
+
+  @Test def `sum repeated numbers`: Unit = {
+    val list = List(2, 2, 2, 5, 5)
+    val expected = 16
+
+    assertEquals(expected, sum(list))
+  }
+
+//  @Test def `max of a few numbers (10pts)`: Unit = {
+//    assert(max(List(3, 7, 2)) == 7)
+//  }
 
 
 
